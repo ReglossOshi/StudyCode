@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="store.css">
+    <title>의류 생산 시스템:입고</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div id="info">
+                <div id="title">
+                    <span>입고 등록</span>
+                </div>
+                <form action="#" id="formInsert"></form>
+                    <ul class="subject">
+                        <li class="line"><div class="lab">입고일</div></label><input type="text" name="" class="text" id="" placeholder="날짜 입력"><input type="date" name="" id="date"></li>
+                        <li class="line"><div class="lab">제품 번호</div><input type="text" name="" class="text" id="" placeholder="제품 번호 입력"></li>
+                        <li class="line"><div class="lab">제품명</div><input type="text" name="" class="text" id="" placeholder="제품명 입력"></li>
+                        <li class="line"><div class="lab">사이즈</div><input type="text" name="" class="text" id="" placeholder="사이즈 입력"></li>
+                        <li class="line"><div class="lab">수량</div><input type="text" name="" class="text" id="" placeholder="수량 입력"></li>
+                    </ul>
+                    <div id="ok">
+                        <input type="submit" value="입력" id="sub">
+                    </div>
+                </form>
+            </div>
+            <div id="search">
+                <div class="searchText">
+                    <input type="text" name="" id="" class="text" placeholder="검색어 입력">
+                    <button id="searchbtn">검색</button>
+                    <select name="" id="searchselect">
+                        <option value="">제품</option>
+                        <option value="">주문 의뢰서</option>
+                    </select>
+                </div>
+
+                <div class="result">
+                    <div id="resultTable">
+                        <table>
+                            <tr class="resultCulum">
+                                <th class="resultRow resultTitle radio">선택</th>
+                                <th class="resultRow resultTitle type">종류</th>
+                                <th class="resultRow resultTitle name">제품명</th>
+                                <th class="resultRow resultTitle size">사이즈</th>
+                            </tr>
+                            <tr class="resultCulumn">
+                                <td class="resultRow"><input type="radio" name="list" id="list"></td>
+                                <td class="resultRow">셔츠</td>
+                                <td class="resultRow">솔리드 드롭 숄더 호형 아랫단 오버사이즈 와이셔츠</td>
+                                <td class="resultRow">S</td>
+                            </tr>
+                           
+                        
+                        </table>
+                    </div>
+                    <div id="page">
+                        <ul>
+                            <li class="pageNum pagebtn">이전</li>
+                            <li class="pageNum" style="background-color: orange;">1</li>
+                            <li class="pageNum">2</li>
+                            <li class="pageNum pagebtn">다음</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

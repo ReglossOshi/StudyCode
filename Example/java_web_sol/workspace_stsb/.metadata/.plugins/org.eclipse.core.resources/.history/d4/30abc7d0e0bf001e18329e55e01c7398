@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+body{
+	height: 1000px;
+}
+
+.chart{
+	margin-top: 500px;
+}
