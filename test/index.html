@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer type="text/javascript" src="js/chart.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="lineChart">
+                <div class="title">
+                    <select name="" id="">
+                        <option value="">2023</option>
+                    </select>
+                    <input type="hidden" name="" id="first" value="20">
+                </div>
+                <canvas id="myChart" width="1000px" height="600px"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        const val = document.getElementById('first').value;
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            datasets: [{
+              label: '2023',
+              data: [val, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+              borderColor: '#FF6384',
+              backgroundColor:'#9BD0F5'
+            }]
+          },
+          options: {
+            responsive:true,
+            plugins: {
+              title: {
+                  display: true,
+                  text: '년간 매출 수익',
+                  font:{
+                    size:30,
+                    family:'TTHakgyoansimMoheomgaB'
+                  }
+              }
+            },
+          }
+        });
+      </script>
+</body>
+</html>
