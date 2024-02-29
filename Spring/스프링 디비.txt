@@ -33,3 +33,31 @@ WHERE ROWNUM<=20;
 select * from tbl_board where ();
 
 SELECT * FROM BO_FREE bf;
+
+
+CREATE TABLE TBL_REPLY(
+	rno number(10,0),
+	bno number(10,0) NOT null,
+	reply varchar2(1000) NOT null,
+	replyer varchar2(50) NOT null,
+	replyDate DATE DEFAULT sysdate,
+	updateDate DATE DEFAULT sysdate
+);
+
+CREATE SEQUENCE SEQ_REPLY;
+ALTER TABLE TBL_REPLY ADD CONSTRAINT PK_REPLY PRIMARY KEY(rno);
+ALTER TABLE TBL_REPLY ADD CONSTRAINT FK_REPLY_BOARD FOREIGN KEY(bno) REFERENCES tbl_board(bno);
+
+
+SELECT num, subject, TO_CHAR(regdate,'YYYY-MM-DD'),hit 
+		FROM BO_FREE 
+		WHERE subject LIKE '%'||?||'%' 
+
+		
+		SELECT NUM, NAME, SUBJECT, CONTENT, substr(FILE1_PATH,1,4), FILE2_PATH 
+    	FROM BO_FREE WHERE NUM = 49;
+    	
+    UPDATE BO_FREE SET NAME = 홍삼캔디, SUBJECT = 미아러, CONTENT = 미아ㅓㄹ                         WHERE NUM = 49;
+    
+   
+SELECT bno FROM TBL_BOARD tb;

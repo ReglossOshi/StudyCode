@@ -1,0 +1,123 @@
+스프링 부트란?
+
+-스프링 프레임워크를 사용하는 프로젝트를 아주
+간편하게 설정할 수 있는 스프링 프레임웍의 서브 프로젝트
+
+-단독 실행 가능한 스프링앱을 생성한다
+
+-최소한의 초기 스프링 구성으로 가능한 한 빨리 실행하도록
+설계되었다.
+
+-웹 컨테이너를 내장하고 있어 최소한의 설정으로
+쉽게 웹 어플을 만들 수 있다.
+
+스프링 부트의 장점
+-많은 XML 설정파일등을 작성하는 설정 방법이 어려운 편이기
+때문에 보통 설정을 복사 붙여넣기를 했어야 했는데
+
+-매우 빠르게 모든 스프링 개발에 관한 경험을 광범위한 접근을
+제공한다.
+
+-프로젝트 환경 구축에서 큰 영역을 차지하는 비기능적인 기능들을
+제공한다.(내장형 서버, 시큐리티, 측정, 상태점검,외부 설정)
+
+
+Group 
+- 큰 틀로 회사 도메인을 거꾸로 붙인다.
+- 거대한 틀 안에 프로젝트 단위로 그룹으로 묶어준다.
+Artifact
+- 실제 프로젝트 이름이 들어가며
+- 프로젝트 마다를 구분지어준다.
+
+dependencies 의존성 설정
+groupid 
+- org.springframework.boot (스프링 본사에서 제공)
+artifactid 
+- spring-boot-starter-web(웹을 만드는 데 사용하는 스타터)
+(스프링MVC, REST형, 임베디드, 톰캣 등등)
+- spring-boot-starter-test(Junit,Hamcrest,Mockito를 포함하는 어플을 테스트한다.)
+
+-org.projectlombok
+-lombok
+라이브러리로 반복되는 getter,setter,tostring등의
+메소드 작성 코드를 줄여주는 코드 다이어트 라이브러리
+@Data=밑에 5개의 어노테이션을 합친것
+
+@Getter = 데이터를 가져올때
+@Setter = 데이터를 넣을때
+@ToString = 클래스의 변수들을 기반으로 ToString 메소드 자동 완성
+	@ToString.Exclude 출력 제외
+	클래스타입으로 만든 객체는 주소값으로 반환되는데
+	ToString메소드를 이용해서 내가 원하는 문자로된 값을 반환하도록 만든다.
+
+@NoArgsConstructor = 기본 생성자 자동 생성
+@AllArgsConstructor = 모든 변수를 사용하는 생성자 자동완성
+@RequiredArgsConstructor = 특정 변수를 사용하는 생성자
+	@NonNull을 붙여주거나 final을 붙인 변수만 선택해 만듬
+@EqualsAndHashCode = 클래스에 대한 equals 함수와 hashCode 함수를 자동으로 생성
+
+
+추가로 Log4j나 Slf4j등에서 로그 프레임워크를 사용할때
+비즈니스 로직과는 별개로 불필요한 코드가 들어가는데
+private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CategoryServiceImpl.class);
+
+그냥 위에 @Log4j 어노테이션을 붙여주면
+log라는 변수로 로깅할 수 있게 해준다.
+
+라이브러리를 추가하면 API를 사용할 수 있게 되지만
+롬북의 실제 코드를 생성하려면 lombok.jar를 통해 설정해준다.
+
+Application.java
+@SpringBootApplication 어노테이션이 붙는다.
+	@EnableAutoConfiguration
+		결국 Configuration인데 자바 설정 파일이다.
+		따라서 메인 클래스를 실행하면 
+		@EnableAutoConfiguration에 의해
+		spring.factories안에 들어있는 수많은 자동 설정들이
+		조건에 따라 적용이 되어 수 많은 Bean들이 생성되고
+		실행된다.
+	@ComponentScan
+		-@Component 및 streotype이 부여된
+		클래스를 자동으로 스캔하여 Bean으로 등록
+		해주는 역할
+		-자동으로 IoC컨테이너에 등록
+		streotype(@Service, @Repository, @Controller)
+	@Component 어노테이션(스프링에서 관리할 대상)을 
+	가진 Bean들을 스캔해서 등록
+	컴포넌트를 구체화된 형태
+	(@Configuration, @Repository, @Service, @Controller, @RestController)
+	
+
+	@Configuration - Bean 설정 파일 임을 알림
+	을 하나로 묶어 놓은 것
+
+이 어노테이션이 붙은 클래스를 최상위 패키지로 인식하고
+ComponentScan을 수행한다.
+
+@Autowired - 	필요한 의존 객체의 "타입"에 
+		해당하는 빈을 찾아 주입한다
+생성자, setter, 필드 에 사용 가능
+
+기본값=true
+의존성 주입할 대상을 못찾으면 구동에 실패한다.
+
+@Bean 메소드로부터 반환된 객체를 스프링 컨테이너에 등록
+
+@Configuration 설정파일을 만들기 위한 어노테이션 
++ Bean을 등록하기 위한 어노테이션
++ 등록할때 싱글톤이 되도록 보장
++CGLIB라는 바이트코드 조작 라이브러리를 사용해서
+AppConfig를 상속받은 임의의 클래스를 만들고 그것을 
+스프링 빈으로 등록했기에 싱글톤을 유지할 수 있다.
+
+@Repository
+특정 예외를 잡아, 스프링의 unchecked 예외로 다시 던진다.
+
+REST 어노테이션
+@RestController 컨트롤러가 REST 방식으로 처리하기 위한 것을 명시
+@ResponseBody 일반적인 JSP와 같은 뷰로 전달되는 게 아니라 데이터 자체를
+		전달하기 위한 용도
+@PathVariable URL 경로에 있는 값을 파라미터로 추출하려고 할 때 사용
+	':값'
+@CrossOrigin Ajax의 크로스 도메인 문제를 해결해주는 어노테이션
+@RequestBoby JSON 데이터를 원하는 타입으로 바인딩 처리
