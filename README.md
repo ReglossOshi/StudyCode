@@ -1,12 +1,15 @@
 # StudyCode
 공부한 것들, 참고용
 
-도서, 
+도서, (노래방, 호텔), 
 
 참조 페이지
 https://www.hdweb.co.kr/
 https://www.hdweb.co.kr/design_view/co1110
 http://co1120.shiningcorp.com/?device=pc
+
+객실 관리 프로그램
+https://www.vendit.co.kr/cloud/
 
 언어 변경
 https://global.oliveyoung.com/
