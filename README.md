@@ -31,3 +31,10 @@ https://www.figma.com/file/UE7ihO5ylXtnc74GploDsI/%EB%AF%B8%EB%8B%88-MES-%ED%94%
 
 무료 동영상
 https://stock.adobe.com/kr/search/free?filters%5Bfree_collection%5D=1&filters%5Bcontent_type%3Avideo%5D=1&k=nature&order=relevance&safe_search=1&search_page=1&search_type=usertyped&acp=&aco=nature&limit=100&get_facets=1
+
+
+지금 해야 할 일
+1. 포트폴리오 작성
+2. 이력서+자소서 작성
+3. 프로젝트 진행
+   
